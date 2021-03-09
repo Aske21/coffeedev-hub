@@ -1,5 +1,4 @@
 <?php
 
-phpinfo();
-
-?>
+echo ("hello my name is "); 
+?>  
