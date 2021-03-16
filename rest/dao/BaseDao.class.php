@@ -2,7 +2,7 @@
 
 require_once dirname(__FILE__)."/../config.php";
 
-class baseDao{
+class BaseDao{
 
     private $connection;
 
