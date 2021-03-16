@@ -4,7 +4,9 @@ require_once dirname(__FILE__)."/../config.php";
 
 class BaseDao{
 
-    private $connection;
+    protected $connection;
+
+    private $table;
 
     public function __construct(){
         try {
@@ -12,9 +14,14 @@ class BaseDao{
             $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             echo "connected";
         }catch(PDOException $e){
-            echo "connection failed, try again";
+            throw $e;
         }
     }
+
+
+    
+
+
 }
 
 
