@@ -20,8 +20,9 @@ class User extends BaseDao{
         return $this->update("users", $email, $user, "email");
     }
 
-
-
+    public function get_user_by_token($token){
+        return $this->query_unique("SELECT * FROM users WHERE token = :token", ["token" => $token]);
+      }
 
 
 }
