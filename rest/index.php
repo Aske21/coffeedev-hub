@@ -8,9 +8,9 @@ require_once dirname(__FILE__)."/dao/UserDao.class.php";
 
 $user_dao = new UserDao();
 
-$user1 = [
-    "id" => "1",
-    "username" => "asketo",
+$user = [
+    "id" => "13",
+    "username" => "asketoo",
     "password" => "1234",
     "name" => "asim",
     "last_name" => "lelele",
@@ -18,7 +18,7 @@ $user1 = [
     
   ];
 
-  $user = $user_dao->add_user($user1);
+  $user = $user_dao->add_user($user);
 
 
 
