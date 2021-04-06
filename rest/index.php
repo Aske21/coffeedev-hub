@@ -6,19 +6,8 @@ error_reporting(E_ALL);
 require_once dirname(__FILE__)."/dao/BaseDao.class.php";
 require_once dirname(__FILE__)."/dao/UserDao.class.php";
 
-$user_dao = new UserDao();
 
-$user = [
-    "id" => "13",
-    "username" => "asketoo",
-    "password" => "1234",
-    "name" => "asim",
-    "last_name" => "lelele",
-    "email" => "asketo@gmail.com",
-    
-  ];
 
-  $user = $user_dao->add_user($user);
 
 
 
