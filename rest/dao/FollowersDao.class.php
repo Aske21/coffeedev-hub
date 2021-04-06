@@ -2,10 +2,10 @@
 
 require_once dirname(__FILE__)."../BaseDao.class.php";
 
-class LikesDao extends BaseDao{
+class FollowersDao extends BaseDao{
 
     public function __construct(){
-        parent::construct("post_likes");
+        parent::construct("followers");
     }
 }
 
