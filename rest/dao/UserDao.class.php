@@ -4,16 +4,23 @@ require_once dirname(__FILE__)."/BaseDao.class.php";
 class UserDao extends BaseDao{
 
     public function add_user($user){
-        $sql = "INSERT INTO users (id, username, password, name, last_name, email) VALUES (:id, :username, :password, :name, :last_name, :email)";
+        $sql = "INSERT INTO users (id, password, email, name, surname ) VALUES (:id, :password, :email, :name, :surname)";
         $stmt= $this->connection->prepare($sql);
         $stmt->execute($user);
         $user['id'] = $this->connection->lastInsertId();
         return $user;
       }
     
-      public function update_user($id, $user){
-    
+      public function get_user_by_email($email){
+        return $this->query_unique("SELECT * FROM users WHERE email = :email", ["email" => $email]);
       }
-
+    
+      public function update_user_by_email($email, $user){
+        $this->update("users", $email, $user, "email");
+      }
+    
+      public function get_user_by_token($token){
+        return $this->query_unique("SELECT * FROM users WHERE token = :token", ["token" => $token]);
+      }
 }
 ?>
