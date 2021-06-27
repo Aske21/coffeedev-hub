@@ -1,6 +1,6 @@
 <?php
 
-class Service{
+class BaseService{
 
     protected $dao;
 

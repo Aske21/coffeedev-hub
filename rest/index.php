@@ -3,20 +3,22 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-require_once dirname(__FILE__)."/dao/BaseDao.class.php";
 require_once dirname(__FILE__)."/dao/UserDao.class.php";
 require_once dirname(__FILE__)."/../vendor/autoload.php";
 
-
-Flight::register('userDao', 'UserDao');
-
+// services
+require_once dirname(__FILE__)."/services/UserService.class.php";
+require_once dirname(__FILE__)."/services/CommentsService.class.php";
+require_once dirname(__FILE__)."/services/PostService.class.php";
+require_once dirname(__FILE__)."/services/LikesService.class.php";
+require_once dirname(__FILE__)."/services/FollowersService.class.php";
 require_once dirname(__FILE__)."./routes/users.php";
 
 Flight::set('flight.log_errors', TRUE);
 
 
 // err handling
-Flight::map('error', function(Exception $ex){
+Flight::map('error', function(Throwable $ex){
     Flight::json(["message" => $ex->getMessage()], $ex->getCode() ? $ex->getCode() : 500);
   });
   
@@ -40,16 +42,13 @@ Flight::map('query', function($name, $default_value = NULL){
     echo $openapi->toJson();
   });
 
-  Flight::route('GET /', function(){
-    Flight::redirect('/docs');
-  });
 
 
   // register
     Flight::register('commentService', 'CommentService');
     Flight::register('followersService', 'FollowersService');
     Flight::register('likesService', 'LikesService');
-    Flight::register('postsService', 'PostsService');
+    Flight::register('postService', 'PostService');
     Flight::register('userService', 'UserService');
 
 
@@ -61,5 +60,7 @@ require_once dirname(__FILE__)."/routes/likes.php";
 require_once dirname(__FILE__)."/routes/messages.php";
 require_once dirname(__FILE__)."/routes/posts.php";
 require_once dirname(__FILE__)."/routes/users.php";
+
+Flight::start();
 
 ?>

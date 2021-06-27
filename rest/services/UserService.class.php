@@ -1,14 +1,14 @@
 <?php
 
-require_once dirname(__FILE__). '/BaseService.class.php';
+require_once dirname(__FILE__).'/BaseService.class.php';
 require_once dirname(__FILE__).'/../dao/UserDao.class.php';
 
-require_once dirname(__FILE__).'/../clients/SMTPClient.class.php';
+
 
 class UserService extends BaseService{
 
    public function __construct(){
-    $this->dao = new UsersDao();
+    $this->dao = new UserDao();
   }
 
   public function reset($user){
@@ -71,6 +71,15 @@ class UserService extends BaseService{
     if (!isset($user['id'])) throw new Exception("Invalid token!", 400);
     $this->dao->update($user['id'], ["status" => "ACTIVE", "token" => NULL]);
     return $user;
+  }
+
+  public function get_users($search, $offset, $limit, $order, $total = FALSE){
+    return $this->dao->get_users($search, $offset, $limit, $order, $total);
+  }
+
+  public function get_user_by_id($id){
+    return $this->dao->get_by_id($id);
+
   }
 }
 

@@ -1,12 +1,12 @@
 <?php
 
 require_once dirname(__FILE__). '/BaseService.class.php';
-require_once dirname(__FILE__).'/../dao/CommentDao.class.php';
+require_once dirname(__FILE__).'/../dao/CommentsDao.class.php';
 
 class CommentService extends BaseService{
 
   public function __construct(){
-    $this->dao = new CommentDao();
+    $this->dao = new CommentsDao();
   }
 
   public function add_comment($user, $comment){

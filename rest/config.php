@@ -1,11 +1,28 @@
 <?php
- const DATE_FORMAT = "Y-m-d H:i:s";
+class Config{
 
-class config{
-        const DB_HOST = "localhost";
-        const DB_USERNAME = "root";
-        const DB_PASSWORD = "root123";
-        const DB_SCHEME = "socialnetwork";
-      
+        const DATE_FORMAT = "Y-m-d H:i:s";
+        
+        public static function DB_HOST(){
+                return Config::get_env("DB_HOST", "localhost");
+              }
+              public static function DB_USERNAME(){
+                return Config::get_env("DB_USERNAME", "root");
+              }
+              public static function DB_PASSWORD(){
+                return Config::get_env("DB_PASSWORD", "root123");
+              }
+              public static function DB_SCHEME(){
+                return Config::get_env("DB_SCHEME", "socialnetwork");
+              }
+
+
+              public static function get_env($name, $default){
+                return isset($_ENV[$name]) && trim($_ENV[$name]) != '' ? $_ENV[$name] : $default;
+              }
+
 }
+
+
+
 ?>

@@ -1,12 +1,12 @@
 <?php
 
-require dirname(__FILE__)."../BaseDao.class.php";
+require_once dirname(__FILE__)."../BaseDao.class.php";
 
 class CommentsDao extends BaseDao{
 
-    public function construct__(){
-        parent::extends("comments");
-    }
+    public function __construct(){
+        parent::__construct("comments");
+      }
 
     public function add_comment($comment){
         return $this->insert("comments", $comment);
@@ -25,6 +25,33 @@ class CommentsDao extends BaseDao{
     public function get_all_comments(){
         return $this->query("SELECT * FROM comments");
     }
+
+    public function get_comments($search, $offset, $limit, $order, $total=FALSE){
+        list($order_column, $order_direction) = self::parse_order($order);
+    
+        $params = [];
+    
+        if ($total){
+          $query = "SELECT COUNT(*) AS total ";
+        }else{
+          $query = "SELECT * ";
+        }
+        $query .= "FROM comments ";
+    
+        if (isset($search)){
+            $query .= "WHERE (LOWER(comment) LIKE CONCAT('%', :search, '%'))";
+            $params['search'] = strtolower($search);
+        }
+    
+        if ($total){
+          return $this->query_unique($query, $params);
+        }else{
+          $query .="ORDER BY ${order_column} ${order_direction} ";
+          $query .="LIMIT ${limit} OFFSET ${offset}";
+    
+          return $this->query($query, $params);
+        }
+      }
 
 }
 
