@@ -8,13 +8,22 @@ class CommentsDao extends BaseDao{
         parent::extends("comments");
     }
 
-    public function get_comments_by_id(){
-        //
+    public function add_comment($comment){
+        return $this->insert("comments", $comment);
     }
 
 
-    public function get_by_comment_id(){
-        //
+    public function update_comment($id, $comment){
+        return $this->update("comments", $id, $comment);
+    }
+
+    public function get_comments_by_id($id){
+        return $this->query_unique("SELECT * FROM comments WHERE id = :id", ["id" => id]);
+    }
+
+
+    public function get_all_comments(){
+        return $this->query("SELECT * FROM comments");
     }
 
 }
