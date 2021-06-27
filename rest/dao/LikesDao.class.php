@@ -5,7 +5,7 @@ require_once dirname(__FILE__)."../BaseDao.class.php";
 class LikesDao extends BaseDao{
 
     public function __construct(){
-        parent::construct("post_likes");
+        parent::__construct("post_likes");
     }
 
     public function get_likes($search, $offset, $limit, $order, $total=FALSE){
@@ -21,7 +21,7 @@ class LikesDao extends BaseDao{
         $query .= "FROM post_likes ";
     
         if (isset($search)){
-          $query .= "WHERE (LOWER(rating_value) LIKE CONCAT('%', :search, '%'))";
+          $query .= "WHERE (LOWER(id) LIKE CONCAT('%', :search, '%'))";
           $params['search'] = strtolower($search);
         }
     

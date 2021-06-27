@@ -11,7 +11,7 @@ class LikesService extends BaseService {
       }
     
       public function get_ratings($search, $offset, $limit, $order, $total = FALSE){
-        return $this->dao->get_ratings($search, $offset, $limit, $order, $total);
+        return $this->dao->get_likes($search, $offset, $limit, $order, $total);
       }
     
       public function get_avg_rating_for_post($id){
