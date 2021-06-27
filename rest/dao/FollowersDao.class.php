@@ -8,7 +8,15 @@ class FollowersDao extends BaseDao{
         parent::construct("followers");
     }
 
-    
+    public function insert_follower(){
+        $data= [
+            "id" => $post[''],
+            "user_id" => $post['user_id'],
+            "follower_id" => $post['follower_id']
+          ];
+           return parent::add($data);
+      
+    }
 
 
 }

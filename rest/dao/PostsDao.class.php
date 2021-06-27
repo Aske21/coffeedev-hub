@@ -13,6 +13,7 @@ class PostsDao extends BaseDao{
         return $this->query("SELECT * FROM posts");
     }
 
+    
   
 }
 

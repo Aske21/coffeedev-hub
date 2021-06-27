@@ -15,7 +15,8 @@ class PostService extends BaseService{
       "id" => $post[''],
       "user_id" => $post['user_id'],
       "body" => $post['body'],
-      "posted_at" => date("Y-m-d H:i:s"),
+      "posted_at" => date(Config::DATE_FORMAT),
+      "likes" => $post['likes'],
       "postimg" => null,
 
     ];
