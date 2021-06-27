@@ -8,10 +8,7 @@ class LikesDao extends BaseDao{
         parent::construct("post_likes");
     }
 
-    public function get_rating_for_post(){
-
-    }
-
+   
 
 }
 

@@ -13,9 +13,7 @@ class PostsDao extends BaseDao{
         return $this->query("SELECT * FROM posts");
     }
 
-    public function get_post_by_id(){
-        
-    }
+  
 }
 
 ?>

@@ -15,7 +15,7 @@ class PostService extends BaseService{
       "id" => $post[''],
       "user_id" => $post['user_id'],
       "body" => $post['body'],
-      "posted_at" => date(),
+      "posted_at" => date("Y-m-d H:i:s"),
       "postimg" => null,
 
     ];
@@ -26,8 +26,6 @@ class PostService extends BaseService{
   public function get_posts($search, $offset, $limit, $order, $total = FALSE){
     return $this->dao->get_posts($search, $offset, $limit, $order, $total);
   }
-
-  
 
 
 }
