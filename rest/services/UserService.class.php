@@ -43,7 +43,11 @@ class UserService extends BaseService{
   }
 
   public function register($user){
+
+
     try {
+      $this->dao->beginTransaction();
+
       $user = parent::add([
         "name" => $user['name'],
         "surname" => $user['surname'],
@@ -54,17 +58,21 @@ class UserService extends BaseService{
         "token" => md5(random_bytes(16))
       ]);
 
+      $this->dao->commit();
 
     } catch (\Exception $e) {
-        
-          throw $e;
-        
+      $this->dao->rollBack();
+      if (strpos($e->getMessage(), 'users.uq_user_email') !== false) {
+        throw new Exception("Account with same email exists in the database", 400, $e);
+      }else{
+        throw $e;
+      }
     }
 
-    
-
     return $user;
-  }
+    }
+  
+
 
   public function confirm($token){
     $user = $this->dao->get_user_by_token($token);
