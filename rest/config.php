@@ -24,5 +24,8 @@ class Config{
 }
 
 
+const JWT_SECRET = "y4KvQcZVqn3F7uxQvcFk";
+const JWT_TOKEN_TIME = 604800;
+
 
 ?>
