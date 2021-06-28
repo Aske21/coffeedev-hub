@@ -9,7 +9,7 @@ class UserDao extends BaseDao{
   }
 
     public function add_user($user){
-        $sql = "INSERT INTO users (id, password, email, name, surname ) VALUES (:id, :password, :email, :name, :surname)";
+        $sql = "INSERT INTO users (id, password, email, user_name, surname ) VALUES (:id, :password, :email, :user_name, :surname)";
         $stmt= $this->connection->prepare($sql);
         $stmt->execute($user);
         $user['id'] = $this->connection->lastInsertId();
@@ -29,7 +29,7 @@ class UserDao extends BaseDao{
         $query .= "FROM users ";
     
         if (isset($search)){
-            $query .= "WHERE (LOWER(name) LIKE CONCAT('%', :search, '%'))";
+            $query .= "WHERE (LOWER(user_name) LIKE CONCAT('%', :search, '%'))";
             $params['search'] = strtolower($search);
         }
     

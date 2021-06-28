@@ -43,13 +43,11 @@ class UserService extends BaseService{
   }
 
   public function register($user){
-
-
     try {
       $this->dao->beginTransaction();
 
       $user = parent::add([
-        "name" => $user['name'],
+        "user_name" => $user['user_name'],
         "surname" => $user['surname'],
         "password" => md5($user['password']),
         "email" => $user['email'],

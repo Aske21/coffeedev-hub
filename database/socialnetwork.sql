@@ -45,9 +45,11 @@ CREATE TABLE `followers` (
   `user_id` int unsigned NOT NULL,
   `follower_id` int unsigned NOT NULL,
   PRIMARY KEY (`id`),
+  KEY `fk_follower_followeruser` (`follower_id`),
   KEY `fk_follower_user` (`user_id`),
-  CONSTRAINT `fk_follower_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  CONSTRAINT `fk_follower_followeruser` FOREIGN KEY (`follower_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_follower_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 /*Data for the table `followers` */
 
@@ -89,6 +91,7 @@ CREATE TABLE `post_likes` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `post_id` int unsigned NOT NULL,
   `user_id` int unsigned NOT NULL,
+  `values` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_postlike_post` (`post_id`),
   KEY `fk_postlike_user` (`user_id`),
@@ -109,11 +112,13 @@ CREATE TABLE `posts` (
   `user_id` int unsigned NOT NULL,
   `likes` int unsigned NOT NULL,
   `postimg` varchar(255) DEFAULT NULL,
-  `topics` varchar(400) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `posts` */
+
+insert  into `posts`(`id`,`body`,`posted_at`,`user_id`,`likes`,`postimg`) values 
+(1,'Test','2021-06-28 00:41:38',1,2,NULL);
 
 /*Table structure for table `users` */
 
@@ -123,14 +128,14 @@ CREATE TABLE `users` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `password` varchar(60) DEFAULT NULL,
   `email` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `name` varchar(128) NOT NULL,
+  `user_name` varchar(128) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `surname` varchar(128) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 /*Data for the table `users` */
 
-insert  into `users`(`id`,`password`,`email`,`name`,`surname`) values 
+insert  into `users`(`id`,`password`,`email`,`user_name`,`surname`) values 
 (1,'1234','aske@gmail.com','Asim','Veledarevic'),
 (2,'12345','aske@gmail.com','Asim','Veledarevic');
 
