@@ -38,6 +38,7 @@ class UserService extends BaseService{
 
     return $db_user;
   }
+  
   public function ban($id){
     execute_update('users', $id, 'BANNED', 'status');
   }
@@ -50,21 +51,15 @@ class UserService extends BaseService{
         "user_name" => $user['user_name'],
         "surname" => $user['surname'],
         "password" => md5($user['password']),
-        "email" => $user['email'],
-        "status" => "ACTIVE",
-        "created_at" => date(Config::DATE_FORMAT),
-        "token" => md5(random_bytes(16))
+        "email" => $user['email']
       ]);
 
       $this->dao->commit();
 
     } catch (\Exception $e) {
-      $this->dao->rollBack();
-      if (strpos($e->getMessage(), 'users.uq_user_email') !== false) {
-        throw new Exception("Account with same email exists in the database", 400, $e);
-      }else{
-        throw $e;
-      }
+      echo "Invalid";
+  
+
     }
 
     return $user;

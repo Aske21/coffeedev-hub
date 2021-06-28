@@ -44,6 +44,7 @@ class Login {
         $("#register-form-container").addClass("hidden");
         $("#form-alert").removeClass("hidden");
         $("#form-alert .alert").html(data.message);
+        window.location.href = "login.html";
       },
       function (jqXHR, textStatus, errorThrown) {
         $("#register-link").prop("disabled", false);

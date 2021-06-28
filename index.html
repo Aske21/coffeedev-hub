@@ -1,430 +1,212 @@
-<link
-  href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-  rel="stylesheet"
-  id="bootstrap-css"
-/>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
 
-<link
-  href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-  rel="stylesheet"
-  integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-  crossorigin="anonymous"
-/>
+    <title>🚀 Coffee Dev Hub 🚀</title>
 
-<script
-  src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-  crossorigin="anonymous"
-></script>
-<script
-  src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-  integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-  crossorigin="anonymous"
-></script>
-<script
-  src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-  integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-  crossorigin="anonymous"
-></script>
+    <!-- Bootstrap Core CSS -->
+    <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
 
-<nav class="navbar navbar-light bg-white">
-  <a href="#" class="navbar-brand">CoffeDev Hub</a>
-  <form class="form-inline">
-    <div class="input-group">
-      <input
-        type="text"
-        class="form-control"
-        aria-label="Recipient's username"
-        aria-describedby="button-addon2"
-      />
-      <div class="input-group-append">
-        <button
-          class="btn btn-outline-primary"
-          type="button"
-          id="button-addon2"
-        >
-          <i class="fa fa-search"></i>
-        </button>
-      </div>
-    </div>
-  </form>
-</nav>
+    <!-- DataTable CSS -->
+    <link
+      href="./assets/css/dataTables/dataTables.bootstrap.css"
+      rel="stylesheet"
+    />
+    <link
+      href="./assets/css/dataTables/dataTables.responsive.css"
+      rel="stylesheet"
+    />
 
-<div class="container-fluid gedf-wrapper">
-  <div class="row">
-    <div class="col-md-3">
-      <div class="card">
-        <div class="card-body">
-          <div class="h5">@LeeCross</div>
-          <div class="h7 text-muted">Fullname : Miracles Lee Cross</div>
-          <div class="h7">
-            Developer of web applications, JavaScript, PHP, Java, Python, Ruby,
-            Java, Node.js, etc.
-          </div>
+    <!-- MetisMenu CSS -->
+    <link href="./assets/css/metisMenu.min.css" rel="stylesheet" />
+
+    <!-- Timeline CSS -->
+    <link href="./assets/css/timeline.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link href="./assets/css/startmin.css" rel="stylesheet" />
+
+    <!-- Morris Charts CSS -->
+    <link href="./assets/css/morris.css" rel="stylesheet" />
+
+    <!-- SPApp CSS -->
+    <link href="./assets/css/jQuerySPApp.css" rel="stylesheet" />
+
+    <!-- Toastr CSS -->
+    <link
+      href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!-- Custom Fonts -->
+    <link
+      href="./assets/css/font-awesome.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div id="wrapper">
+      <!-- Navigation -->
+      <!--style="background-color: #00563f; border-color: #00563f"-->
+      <nav class="navbar navbar-light" style="background-color: #e3f2fd">
+        <!-- Navbar content -->
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#index"> Coffee Dev Hub </a>
         </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">
-            <div class="h6 text-muted">Followers</div>
-            <div class="h5">5.2342</div>
+
+        <button
+          type="button"
+          class="navbar-toggle"
+          data-toggle="collapse"
+          data-target=".navbar-collapse"
+        >
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <ul class="nav navbar-right navbar-top-links">
+          <li id="account-dropdown" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              <i class="fa fa-user fa-fw"></i> Account <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu dropdown-user">
+              <li>
+                <a href="#profile"
+                  ><i class="fa fa-user fa-fw"></i> My profile</a
+                >
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a href="#" onclick="doLogout()"
+                  ><i class="fa fa-sign-out fa-fw"></i> Logout</a
+                >
+              </li>
+            </ul>
           </li>
-        </ul>
-      </div>
-    </div>
-    <div class="col-md-6 gedf-main">
-      <!--- \\\\\\\Post-->
-      <div class="card gedf-card">
-        <div class="card-header">
-          <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
-            <li class="nav-item">
-              <a
-                class="nav-link active"
-                id="posts-tab"
-                data-toggle="tab"
-                href="#posts"
-                role="tab"
-                aria-controls="posts"
-                aria-selected="true"
-                >Make a publication</a
+          <ul class="nav navbar-nav navbar-right navbar-top-links">
+            <li>
+              <a id="sign-in-button" href="login.html"
+                ><i class="fa fa-sign-in fa-fw"></i> Log in</a
               >
             </li>
           </ul>
-        </div>
-        <div class="card-body">
-          <div class="tab-content" id="myTabContent">
-            <div
-              class="tab-pane fade show active"
-              id="posts"
-              role="tabpanel"
-              aria-labelledby="posts-tab"
-            >
-              <div class="form-group">
-                <label class="sr-only" for="message">post</label>
-                <textarea
-                  class="form-control"
-                  id="message"
-                  rows="3"
-                  placeholder="What are you thinking?"
-                ></textarea>
-              </div>
-            </div>
-            <div
-              class="tab-pane fade"
-              id="images"
-              role="tabpanel"
-              aria-labelledby="images-tab"
-            >
-              <div class="form-group">
-                <div class="custom-file">
-                  <input
-                    type="file"
-                    class="custom-file-input"
-                    id="customFile"
-                  />
-                  <label class="custom-file-label" for="customFile"
-                    >Upload image</label
-                  >
-                </div>
-              </div>
-              <div class="py-4"></div>
-            </div>
-          </div>
-          <div class="btn-toolbar justify-content-between">
-            <div class="btn-group">
-              <button type="submit" class="btn btn-primary">share</button>
-            </div>
-            <div class="btn-group">
-              <button
-                id="btnGroupDrop1"
-                type="button"
-                class="btn btn-link dropdown-toggle"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <i class="fa fa-globe"></i>
-              </button>
-              <div
-                class="dropdown-menu dropdown-menu-right"
-                aria-labelledby="btnGroupDrop1"
-              >
-                <a class="dropdown-item" href="#"
-                  ><i class="fa fa-globe"></i> Public</a
+        </ul>
+        <!-- /.navbar-top-links -->
+
+        <div id="sidebar-menu" class="navbar-default sidebar" role="navigation">
+          <div class="sidebar-nav navbar-collapse">
+            <ul class="nav" id="side-menu">
+              <li>
+                <a href="#dashboard" class="active"
+                  ><i class="fa fa-dashboard fa-fw"></i> Dashboard</a
                 >
-                <a class="dropdown-item" href="#"
-                  ><i class="fa fa-users"></i> Friends</a
+              </li>
+              <li>
+                <a href="#users"><i class="fa fa-users fa-fw"></i> Users</a>
+              </li>
+              <li>
+                <a href="#posts"><i class="fa fa-tasks fa-fw"></i> Posts</a>
+              </li>
+              <li>
+                <a href="#comments"
+                  ><i class="fa fa-comments fa-fw"></i> Comments</a
                 >
-                <a class="dropdown-item" href="#"
-                  ><i class="fa fa-user"></i> Just me</a
-                >
-              </div>
-            </div>
+              </li>
+              <li>
+                <a href="#ratings"><i class="fa fa-star fa-fw"></i> Ratings</a>
+              </li>
+            </ul>
           </div>
         </div>
+      </nav>
+
+      <div>
+        <h1 style="text-align: center">Welcome to Coffee Dev Hub</h1>
       </div>
-      <!-- Post /////-->
 
-      <!--- \\\\\\\Post-->
-      <div class="card gedf-card">
-        <div class="card-header">
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="mr-2">
-                <img
-                  class="rounded-circle"
-                  width="45"
-                  src="https://picsum.photos/50/50"
-                  alt=""
-                />
-              </div>
-              <div class="ml-2">
-                <div class="h5 m-0">@LeeCross</div>
-                <div class="h7 text-muted">Miracles Lee Cross</div>
-              </div>
-            </div>
-            <div>
-              <div class="dropdown">
-                <button
-                  class="btn btn-link dropdown-toggle"
-                  type="button"
-                  id="gedf-drop1"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  <i class="fa fa-ellipsis-h"></i>
-                </button>
-                <div
-                  class="dropdown-menu dropdown-menu-right"
-                  aria-labelledby="gedf-drop1"
-                >
-                  <div class="h6 dropdown-header">Configuration</div>
-                  <a class="dropdown-item" href="#">Save</a>
-                  <a class="dropdown-item" href="#">Hide</a>
-                  <a class="dropdown-item" href="#">Report</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="text-muted h7 mb-2">
-            <i class="fa fa-clock-o"></i>10 min ago
-          </div>
-          <a class="card-link" href="#">
-            <h5 class="card-title">
-              Lorem ipsum dolor sit amet, consectetur adip.
-            </h5>
-          </a>
-
-          <p class="card-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
-            recusandae nulla rem eos ipsa praesentium esse magnam nemo dolor
-            sequi fuga quia quaerat cum, obcaecati hic, molestias minima iste
-            voluptates.
-          </p>
-        </div>
-        <div class="card-footer">
-          <a href="#" class="card-link"><i class="fa fa-gittip"></i> Like</a>
-          <a href="#" class="card-link"
-            ><i class="fa fa-comment"></i> Comment</a
-          >
-          <a href="#" class="card-link"
-            ><i class="fa fa-mail-forward"></i> Share</a
-          >
-        </div>
-      </div>
-      <!-- Post /////-->
-
-      <!--- \\\\\\\Post-->
-      <div class="card gedf-card">
-        <div class="card-header">
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="mr-2">
-                <img
-                  class="rounded-circle"
-                  width="45"
-                  src="https://picsum.photos/50/50"
-                  alt=""
-                />
-              </div>
-              <div class="ml-2">
-                <div class="h5 m-0">@LeeCross</div>
-                <div class="h7 text-muted">Miracles Lee Cross</div>
-              </div>
-            </div>
-            <div>
-              <div class="dropdown">
-                <button
-                  class="btn btn-link dropdown-toggle"
-                  type="button"
-                  id="gedf-drop1"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  <i class="fa fa-ellipsis-h"></i>
-                </button>
-                <div
-                  class="dropdown-menu dropdown-menu-right"
-                  aria-labelledby="gedf-drop1"
-                >
-                  <div class="h6 dropdown-header">Configuration</div>
-                  <a class="dropdown-item" href="#">Save</a>
-                  <a class="dropdown-item" href="#">Hide</a>
-                  <a class="dropdown-item" href="#">Report</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="text-muted h7 mb-2">
-            <i class="fa fa-clock-o"></i> 10 min ago
-          </div>
-          <a class="card-link" href="#">
-            <h5 class="card-title">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit
-              consectetur deserunt illo esse distinctio.
-            </h5>
-          </a>
-
-          <p class="card-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
-            omnis nihil, aliquam est, voluptates officiis iure soluta alias vel
-            odit, placeat reiciendis ut libero! Quas aliquid natus cumque quae
-            repellendus. Lorem ipsum dolor sit amet consectetur adipisicing
-            elit. Ipsa, excepturi. Doloremque, reprehenderit! Quos in maiores,
-            soluta doloremque molestiae reiciendis libero expedita assumenda
-            fuga quae. Consectetur id molestias itaque facere? Hic!
-          </p>
-          <div>
-            <span class="badge badge-primary">JavaScript</span>
-            <span class="badge badge-primary">Android</span>
-            <span class="badge badge-primary">PHP</span>
-            <span class="badge badge-primary">Node.js</span>
-            <span class="badge badge-primary">Ruby</span>
-            <span class="badge badge-primary">Paython</span>
-          </div>
-        </div>
-        <div class="card-footer">
-          <a href="#" class="card-link"><i class="fa fa-gittip"></i> Like</a>
-          <a href="#" class="card-link"
-            ><i class="fa fa-comment"></i> Comment</a
-          >
-          <a href="#" class="card-link"
-            ><i class="fa fa-mail-forward"></i> Share</a
-          >
-        </div>
-      </div>
-      <!-- Post /////-->
-
-      <!--- \\\\\\\Post-->
-      <div class="card gedf-card">
-        <div class="card-header">
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="mr-2">
-                <img
-                  class="rounded-circle"
-                  width="45"
-                  src="https://picsum.photos/50/50"
-                  alt=""
-                />
-              </div>
-              <div class="ml-2">
-                <div class="h5 m-0">@LeeCross</div>
-                <div class="h7 text-muted">Miracles Lee Cross</div>
-              </div>
-            </div>
-            <div>
-              <div class="dropdown">
-                <button
-                  class="btn btn-link dropdown-toggle"
-                  type="button"
-                  id="gedf-drop1"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  <i class="fa fa-ellipsis-h"></i>
-                </button>
-                <div
-                  class="dropdown-menu dropdown-menu-right"
-                  aria-labelledby="gedf-drop1"
-                >
-                  <div class="h6 dropdown-header">Configuration</div>
-                  <a class="dropdown-item" href="#">Save</a>
-                  <a class="dropdown-item" href="#">Hide</a>
-                  <a class="dropdown-item" href="#">Report</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="text-muted h7 mb-2">
-            <i class="fa fa-clock-o"></i> Hace 40 min
-          </div>
-          <a class="card-link" href="#">
-            <h5 class="card-title">
-              Totam non adipisci hic! Possimus ducimus amet, dolores illo ipsum
-              quos cum.
-            </h5>
-          </a>
-
-          <p class="card-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam sunt
-            fugit reprehenderit consectetur exercitationem odio, quam nobis?
-            Officiis, similique, harum voluptate, facilis voluptas pariatur
-            dolorum tempora sapiente eius maxime quaerat.
-            <a
-              href="https://mega.nz/#!1J01nRIb!lMZ4B_DR2UWi9SRQK5TTzU1PmQpDtbZkMZjAIbv97hU"
-              target="_blank"
-              >https://mega.nz/#!1J01nRIb!lMZ4B_DR2UWi9SRQK5TTzU1PmQpDtbZkMZjAIbv97hU</a
-            >
-          </p>
-        </div>
-        <div class="card-footer">
-          <a href="#" class="card-link"><i class="fa fa-gittip"></i> Like</a>
-          <a href="#" class="card-link"
-            ><i class="fa fa-comment"></i> Comment</a
-          >
-          <a href="#" class="card-link"
-            ><i class="fa fa-mail-forward"></i> Share</a
-          >
-        </div>
-      </div>
-      <!-- Post /////-->
+      <main id="jqueryspapp" role="main">
+        <section id="dashboard" data-load="dashboard.html"></section>
+        <section id="posts" data-load="posts.html"></section>
+        <section id="comments" data-load="comments.html"></section>
+        <section id="ratings" data-load="ratings.html"></section>
+        <section id="profile" data-load="profile.html"></section>
+        <section id="users" data-load="users.html"></section>
+      </main>
     </div>
-    <div class="col-md-3">
-      <div class="card gedf-card">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </p>
-          <a href="#" class="card-link">Card link</a>
-          <a href="#" class="card-link">Another link</a>
-        </div>
-      </div>
-      <div class="card gedf-card">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </p>
-          <a href="#" class="card-link">Card link</a>
-          <a href="#" class="card-link">Another link</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="./assets/js/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="./assets/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="./assets/js/metisMenu.min.js"></script>
+
+    <!-- Morris Charts JavaScript
+        <script src="./assets/js/raphael.min.js"></script>
+        <script src="./assets/js/morris.min.js"></script>
+        <script src="./assets/js/morris-data.js"></script> -->
+
+    <!-- SPApp JavaScript -->
+    <script src="./assets/js/jQuerySPApp.js"></script>
+
+    <!-- Toastr JavaScript -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="./assets/js/startmin.js"></script>
+
+    <!-- Utils JavaScript -->
+    <script src="./assets/js/utils.js"></script>
+
+    <!-- Validator JavaScript -->
+    <script src="//cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+
+    <!-- DataTable JS -->
+    <script src="./assets/js/dataTables/jquery.dataTables.min.js"></script>
+    <script src="./assets/js/dataTables/dataTables.bootstrap.min.js"></script>
+    <script src="//cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function () {
+        var app = $.jQuerySPApp({ defaultView: "" });
+
+        app.run();
+
+        if (!window.localStorage.getItem("token")) {
+          document.getElementById("account-dropdown").style.display = "none";
+          document.getElementById("sidebar-menu").style.display = "none";
+        }
+        if (window.localStorage.getItem("token")) {
+          document.getElementById("sign-in-button").style.display = "none";
+          var user_info = parse_jwt(window.localStorage.getItem("token"));
+          document.getElementById("sidebar-menu").style.display = "none";
+        }
+      });
+
+      function doLogout() {
+        window.localStorage.clear();
+        window.location = "login.html";
+        console.log("Logged out");
+      }
+    </script>
+  </body>
+</html>
