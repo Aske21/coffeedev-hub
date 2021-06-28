@@ -23,12 +23,29 @@
       </div>
   
       <!-- Submit button -->
-      <button type="submit" class="btn btn-primary btn-block mb-4">Post</button>
+      <button type="submit" class="btn btn-primary btn-block mb-4" onclick=(addPost)>Post</button>
     </form>
   </div>
 
   <script>
     // need jquery code for post
+    function addPost(post){
+    $.ajax({
+         url: "rest/posts",
+         type: "POST",
+         data: JSON.stringify(post),
+         contentType: "application/json",
+         beforeSend: function(xhr){xhr.setRequestHeader('Authentication', localStorage.getItem("token"));},
+         success: function(data) {
+            toastr.success("Success");
+            $("#add-recipe").trigger("reset");
+            $('#add-recipe-modal').modal("hide");
+         },
+         error: function(jqXHR, textStatus, errorThrown ){
+           toastr.error(jqXHR.responseJSON.message);
+         }
+      });
+  }
     </script>
 </body>
 </html>
